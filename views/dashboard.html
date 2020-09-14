@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+  <title>Dashboard</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="HandheldFriendly" content="true" />
+    <link rel="icon" href="./images/logo.png" type="image/x-icon" />
+    <!-- LATEST BOOSTRAP -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- FONTS  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+
+  <body>
+    <!-- Navbar Start -->
+    <div id="navbarr"></div>
+    <br />
+    <!-- Navabr Ends -->
+
+    <div class="container">
+      <!-- Trend Analysis graph-->
+      <div class="jumbotron">
+        <h1>
+          TREND ANALYSIS
+        </h1>
+        <form>
+          <div class="row">
+            <div class="form-group col-sm-4">
+              <label for="start_date_trend_analysis">START DATE</label>
+              <input
+                type="date"
+                class="form-control"
+                id="start_date_trend_analysis"
+                aria-describedby="start_date_trend_analysis_help"
+              />
+              <small
+                id="start_date_trend_analysis_help"
+                class="form-text text-muted"
+              ></small>
+            </div>
+
+            <div class="form-group col-sm-4">
+              <label for="end_date_trend_analysis">END DATE</label>
+              <input
+                type="date"
+                class="form-control"
+                id="end_date_trend_analysis"
+                aria-describedby="end_date_trend_analysis_help"
+              />
+              <small
+                id="end_date_trend_analysis_help"
+                class="form-text text-muted"
+              ></small>
+            </div>
+
+            <div class="form-group col-sm-4">
+              <label for="trend_analysis_value">VALUE</label>
+              <select
+                id="trend_analysis_value"
+                class="form-control"
+                aria-describedby="value_select_help"
+              >
+                <option value="AQI">AQI</option>
+                <option value="temp">Temperature</option>
+                <option value="Humidity">Humidity</option>
+              </select>
+              <small id="value_select_help" class="form-text text-muted"
+                >Select the value to be analysed</small
+              >
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              type="button"
+              class="btn btn-success btn-lg graph-button"
+              onclick="trend_analysis_form();"
+              value="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+        <br />
+        <!-- Graph Line Plot  -->
+        <div id="graph_line_plot">
+          <h2>Steps To Use the graph</h2>
+          <p>
+            1. Select start and end dates from the dates available (Mentioned on
+            top).
+          </p>
+          <p>2. Select the value from drop down list (ex- AQI).</p>
+          <p>3. Press Submit.</p>
+          <p>
+            4. Various options to interact with graph comes on top right of
+            graph when mouse is hovered over graph
+          </p>
+        </div>
+        <!-- ------------------------------ -->
+        <br />
+        <!-- Bar Plot -->
+        <div id="graph_bar_plot"></div>
+        <!-- --------------------------------->
+      </div>
+      <hr />
+      <!-- Correlation Analysis Graph-->
+      <div class="jumbotron">
+        <h1>
+          CORRELATION ANALYSIS
+        </h1>
+        <form>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="start_date_corr">START DATE</label>
+              <input
+                type="date"
+                class="form-control"
+                id="start_date_corr"
+                aria-describedby="start_date_corr_help"
+              />
+              <small
+                id="start_date_corr_help"
+                class="form-text text-muted"
+              ></small>
+            </div>
+
+            <div class="form-group col-sm-6">
+              <label for="end_date_corr">END DATE</label>
+              <input
+                type="date"
+                class="form-control"
+                id="end_date_corr"
+                aria-describedby="end_date_corr_help"
+              />
+              <small
+                id="end_date_corr_help"
+                class="form-text text-muted"
+              ></small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="xaxis">X VALUE</label>
+              <select
+                id="xaxis"
+                class="form-control"
+                aria-describedby="xaxis_help"
+              >
+                <option value="AQI">AQI</option>
+                <option value="temp">Temperature</option>
+                <option value="Humidity">Humidity</option>
+              </select>
+              <small id="xaxis_help" class="form-text text-muted"
+                >Selec the value to be plotted on x-axis</small
+              >
+            </div>
+
+            <div class="form-group col-sm-6">
+              <label for="yaxis">Y VALUE</label>
+              <select
+                id="yaxis"
+                class="form-control"
+                aria-describedby="yaxis_help"
+              >
+                <option value="AQI">AQI</option>
+                <option value="temp">Temperature</option>
+                <option value="Humidity">Humidity</option>
+              </select>
+              <small id="yaxis_help" class="form-text text-muted"
+                >Selec the value to be plotted on y-axis</small
+              >
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              type="button"
+              class="btn btn-success btn-lg graph-button"
+              onclick="correlation_form();"
+              value="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+        <br />
+
+        <!--  -->
+
+        <!-- Correlation Plot -->
+        <div id="correlation_plot">
+          <h2>Steps To Use the graph</h2>
+          <p>
+            1. Select start and end dates from the dates available (Mentioned on
+            top).
+          </p>
+          <p>
+            2. Select the 2 values (for X-axis and Y-axis) from drop down lists
+            (ex- x-axis = AQI, y-axis = Humidity).
+          </p>
+          <p>3. Press Submit.</p>
+          <p>
+            4. Various options to interact with graph comes on top right of
+            graph when mouse is hovered over graph
+          </p>
+        </div>
+      </div>
+      <!-- ------------------- -->
+      <hr />
+      <!--  BOX PLOTS -->
+      <div class="jumbotron">
+        <h1>
+          BOX PLOT
+        </h1>
+        <form>
+          <div class="row">
+            <div class="form-group col-sm-4">
+              <label for="start_date_bp">START DATE</label>
+              <input
+                type="date"
+                class="form-control"
+                id="start_date_bp"
+                aria-describedby="start_date_bp_help"
+              />
+              <small id="start_date_bp_help" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+
+            <div class="form-group col-sm-4">
+              <label for="end_date_bp">END DATE</label>
+              <input
+                type="date"
+                class="form-control"
+                id="end_date_bp"
+                aria-describedby="end_date_bp_help"
+              />
+              <small id="end_date_bp_help" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+
+            <div class="form-group col-sm-4">
+              <label for="custom-select">SELECT VLAUES</label>
+              <select
+                class="custom-select"
+                multiple
+                id="multiple_select"
+                style="max-height: 2.3rem; overflow: auto;"
+                aria-describedby="multiple_select_help"
+              >
+                <option value="AQI">AQI</option>
+                <option value="temp">Temperature</option>
+                <option value="Humidity">Humidity</option>
+              </select>
+              <small id="multiple_select_help" class="form-text text-muted"
+                >Hold ctrl key to select multiple values</small
+              >
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              type="button"
+              class="btn btn-success btn-lg graph-button"
+              onclick="box_plot_form();"
+              value="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+        <br />
+
+        <!-- Line Plot -->
+        <div id="box_plot">
+          <h2>Steps To Use the graph</h2>
+          <p>
+            1. Select start and end dates from the dates available (Mentioned on
+            top).
+          </p>
+          <p>2. Select all the values required.</p>
+          <p>3. Press Submit.</p>
+          <p>
+            4. Various options to interact with graph comes on top right of
+            graph when mouse is hovered over graph
+          </p>
+        </div>
+      </div>
+      <hr />
+    </div>
+
+    <!-- ---------------- -->
+
+    <div id="footer">
+      <div class="container">
+        <span class="display-3 serious-peeps"
+          >Serious<br />
+          Peeps</span
+        >
+        <ul>
+          <li>Triman Kaur</li>
+          <li>Lakshay Khurana</li>
+          <li>Bhaskar Mahajan</li>
+        </ul>
+      </div>
+    </div>
+    <!-- HTML DONE -->
+    <!-- JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#navbarr").load("navbar.html");
+      });
+    </script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!--  SETTING PRESENT DATES -->
+    <script>
+      var dates = sessionStorage.getItem("availaible_dates").split(",");
+
+      dates.sort();
+      sessionStorage.removeItem("availaible_dates");
+      sessionStorage.setItem("availaible_dates", dates);
+
+      var start_date = dates[0];
+      var end_date = dates[dates.length - 1];
+      document.getElementById("start_date_trend_analysis_help").innerHTML =
+        "Data present from " + start_date + " to " + end_date;
+      document.getElementById("end_date_trend_analysis_help").innerHTML =
+        "Data present from " + start_date + " to " + end_date;
+      document.getElementById("start_date_corr_help").innerHTML =
+        "Data present from " + start_date + " to " + end_date;
+      document.getElementById("end_date_corr_help").innerHTML =
+        "Data present from " + start_date + " to " + end_date;
+      document.getElementById("start_date_bp_help").innerHTML =
+        "Data present from " + start_date + " to " + end_date;
+      document.getElementById("end_date_bp_help").innerHTML =
+        "Data present from " + start_date + " to " + end_date;
+    </script>
+    <script src="dashboard.js"></script>
+    <!-- ------------------------ -->
+  </body>
+</html>

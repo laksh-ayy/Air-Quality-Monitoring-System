@@ -1,0 +1,8 @@
+{
+    "credentials":{
+        "apikey": "BHSM-Co_O8KDKxEx8pXYtorUE9NmvHtkQTwdtJM7RrDA",
+        "environmentId": "system",
+        "collectionId": "news-en",
+        "url": "https://api.eu-gb.discovery.watson.cloud.ibm.com/instances/d6375b52-c0d7-4b29-82e9-fe1b49e1187f"
+    }
+}

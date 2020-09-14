@@ -1,0 +1,60 @@
+#graph_line_plot {
+  position: relative;
+  text-align: center;
+  font-size: 5vw;
+}
+
+#correlation_plot {
+  position: relative;
+  text-align: center;
+  font-size: 5vw;
+}
+
+#box_plot {
+  position: relative;
+  text-align: center;
+  font-size: 5vw;
+}
+
+h1 {
+  font-size: 2.6rem;
+  color: rgb(117, 109, 109);
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  color: rgb(117, 109, 109);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+p {
+  color: rgb(117, 109, 109);
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+.jumbotron {
+  background-color: rgb(207, 250, 207);
+  margin-bottom: 5rem;
+  box-shadow: 10px 10px 4vw gray;
+  margin-top: 5rem;
+}
+
+.graph-button {
+  height: 3rem;
+  width: 5rem;
+  padding: 0;
+  text-indent: 0px;
+  background-color: rgba(32, 177, 13, 0.205);
+  color: rgba(0, 0, 0, 0.63);
+}
+
+form .text-center .graph-button:hover {
+  background-color: rgb(84, 189, 70);
+  color: white;
+}

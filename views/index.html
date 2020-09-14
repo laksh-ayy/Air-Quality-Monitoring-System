@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="HandheldFriendly" content="true" />
+    <title>Air Pollution Chandigarh</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- --------------------------- -->
+    <link rel="icon" href="./images/logo.png" type="image/x-icon" />
+
+    <!-- FOR HOME ICON OF MAP RESET BUTTON -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+
+    <!-- FONTS  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--  -->
+    <!---------------------------------- MAP LIBRARIES --------------------------------->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""
+    />
+    <!-- leaflet search -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-search@2.3.7/dist/leaflet-search.src.css"
+    />
+    <!-- Search box map -->
+    <link rel="stylesheet" href="zoomhome.css" type="text/html" />
+    <!-- <script src="zoomhome.js"></script> -->
+    <!-- ----- -->
+    <!-- CUSTOM CSS  -->
+    <link rel="stylesheet" href="slick.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div id="navbarr"></div>
+
+    <!--  ----------------- -->
+    <!-- Popular places section -->
+    <section id="mid_section">
+      <div class="container">
+        <h1>
+          CITY<br />
+          BEAUTIFUL
+        </h1>
+        <div class="row" style="margin-top: 2rem;">
+          <div class="col" id="to_change_column">
+            <div class="row">
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col">AQI</div>
+              <div class="col">
+                Temp<elem id="to_remove_temp">erature</elem>
+              </div>
+              <div class="col">Humidity</div>
+              <div class="w-100"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;">blank</div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="w-100"></div>
+
+              <div class="col">SECTOR-17</div>
+              <div class="col" id="col_17_aqi"></div>
+              <div class="col" id="col_17_pm"></div>
+              <div class="col" id="col_17_hmd"></div>
+              <div class="w-100"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;">blank</div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="w-100"></div>
+              <div class="col">
+                SUKHNA LAKE
+              </div>
+              <div class="col" id="col_sl_aqi"></div>
+              <div class="col" id="col_sl_pm"></div>
+              <div class="col" id="col_sl_hmd"></div>
+
+              <div class="w-100"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;">blank</div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="w-100"></div>
+              <div class="col">
+                ROCK GARDEN
+              </div>
+              <div class="col" id="col_rg_aqi"></div>
+              <div class="col" id="col_rg_pm"></div>
+              <div class="col" id="col_rg_hmd"></div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="row">
+              <div class="col" style="visibility: hidden;">blank</div>
+              <div class="col">AQI</div>
+              <div class="col">
+                Temp<elem id="to_remove_temp">erature</elem>
+              </div>
+              <div class="col">Humidity</div>
+              <div class="w-100"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;">blank</div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="w-100"></div>
+              <div class="col">PGI</div>
+              <div class="col" id="col_pgi_aqi"></div>
+              <div class="col" id="col_pgi_pm"></div>
+              <div class="col" id="col_pgi_hmd"></div>
+              <div class="w-100"></div>
+              <div class="col" style="visibility: hidden;">blank</div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="w-100" style="visibility: hidden;"></div>
+              <div class="col">
+                ELANTE MALL
+              </div>
+              <div class="col" id="col_elante_aqi"></div>
+              <div class="col" id="col_elante_pm"></div>
+              <div class="col" id="col_elante_hmd"></div>
+              <div class="w-100"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;">blank</div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="col" style="visibility: hidden;"></div>
+              <div class="w-100"></div>
+              <div class="col">
+                PANJAB UNIVERSITY
+              </div>
+              <div class="col" id="col_pu_aqi"></div>
+              <div class="col" id="col_pu_pm"></div>
+              <div class="col" id="col_pu_hmd"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ------------- -->
+
+    <!-- Upper section/MAP section -->
+    <section id="upper_section">
+      <div class="container">
+        <div id="map">
+          <h1 id="remove_after_data_is_loaded">
+            PLEASE WAIT DATA IS BEING LOADED
+          </h1>
+        </div>
+      </div>
+    </section>
+    <hr />
+
+    <!-- NEW SECTION -->
+    <div class="container" id="news_section">
+      <div class="row multiple-items" id="news_row"></div>
+      <div class="slick_dots" style="margin-top: 1rem;"></div>
+    </div>
+    <hr />
+    <!-- ----------------- -->
+
+    <!------------------- AQI INDEX section ----------------->
+    <div class="container-fluid aqi-index-conatiner" id="to_focus">
+      <div class="container" style="padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="row justify-content-center air-quality-index-row">
+          <h1 style="color: rgba(0, 0, 0, 0.596);">
+            Air Quality Index
+          </h1>
+        </div>
+        <div class="row photos-row">
+          <div class="col-10 col-md-2" onclick="set_info('a2c03b');">
+            <div class="card" id="aqi-card">
+              <div class="text-center">
+                <img
+                  src="images/a2c03b.png"
+                  class="rounded rounded aqi-image"
+                  alt="no image"
+                />
+              </div>
+              <span id="span-aqi-index" style="color: #a2c03b;">Good</span>
+              <p id="range-info1">0-50</p>
+            </div>
+          </div>
+
+          <div class="col-10 col-md-2" onclick="set_info('ffcc00');">
+            <div class="card" id="aqi-card">
+              <div class="text-center">
+                <img
+                  src="images/ffcc00.png"
+                  class="rounded rounded aqi-image"
+                  alt="no image"
+                />
+              </div>
+              <span id="span-aqi-index" style="color: #ffcc00;">Moderate</span>
+              <p id="range-info2">51-100</p>
+            </div>
+          </div>
+          <div class="col-10 col-md-2" onclick="set_info('ff9933');">
+            <div class="card" id="aqi-card">
+              <div class="text-center">
+                <img
+                  src="images/ff9933.png"
+                  class="rounded aqi-image"
+                  alt="no image"
+                />
+              </div>
+              <span id="span-aqi-index" style="color: #ff9933;">Poor</span>
+              <p id="range-info3">101-150</p>
+            </div>
+          </div>
+          <div class="col-10 col-md-2" onclick="set_info('ea572a');">
+            <div class="card" id="aqi-card">
+              <div class="text-center">
+                <img
+                  src="images/ea572a.png"
+                  class="rounded aqi-image"
+                  alt="no image"
+                />
+              </div>
+              <span id="span-aqi-index" style="color: #ea572a;">Unhealthy</span>
+              <p id="range-info4">151-300</p>
+            </div>
+          </div>
+          <div class="col-10 col-md-2" onclick="set_info('cc2600');">
+            <div class="card" id="aqi-card">
+              <div class="text-center">
+                <img
+                  src="images/cc2600.png"
+                  class="rounded aqi-image"
+                  alt="no image"
+                />
+              </div>
+              <span id="span-aqi-index" style="color: #cc2600;">Hazardous</span>
+              <p id="range-info5">300+</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="final_focus"></div>
+
+        <div class="row" id="showing-info-row">
+          <div
+            class="col-10 offset-1 col-md-6 offset-md-3"
+            id="showing-info-card-col"
+          >
+            <div class="card" id="showing-info-card-containing-image-and-text">
+              <div class="row" style="padding: 0;">
+                <div class="col-4 offset-1" style="padding: 0;">
+                  <div class="card" id="showing-info-card">
+                    <div class="text-center">
+                      <img
+                        src="images/a2c03b.png"
+                        class="showing-info-image"
+                        alt="no image"
+                        id="showing-info-image"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6" style="padding: 0;">
+                  <div class="card" id="showing-info-text">
+                    <h3
+                      id="showing-info-text-heading"
+                      style="
+                        text-align: center;
+                        color: #a2c03b;
+                        font-size: 1rem;
+                        padding-top: 1rem;
+                        padding-bottom: auto;
+                      "
+                      ;
+                    >
+                      GOOD 0-50
+                    </h3>
+                    <p
+                      id="showing-info-text-paragraph"
+                      style="
+                        text-align: justify;
+                        color: #a2c03b;
+                        font-size: 0.9rem;
+                      "
+                    >
+                      Air quality is considered satisfactory, and air pollution
+                      poses little or no risk.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------------- -->
+
+    <hr />
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container">
+        <span class="display-3 serious-peeps"
+          >Serious<br />
+          Peeps</span
+        >
+        <ul>
+          <li>Triman Kaur</li>
+          <li>Lakshay Khurana</li>
+          <li>Bhaskar Mahajan</li>
+        </ul>
+      </div>
+    </div>
+
+    <!--------------------------------- HTML ---------------------------------------->
+
+    <!-- Sctipt -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script
+      src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/leaflet-search@2.3.7/dist/leaflet-search.src.js"></script>
+
+    <script src="zoomhome.js"></script>
+    <script>
+      $(function () {
+        $("#navbarr").load("navbar.html");
+      });
+    </script>
+
+    <script src="slick.min.js"></script>
+    <script src="data/chandigarh-sector.js"></script>
+    <script src="map-create.js"></script>
+
+    <script src="news-create.js"></script>
+    <script src="aqi_index_information.js"></script>
+    <!-- ------------------------ -->
+  </body>
+</html>
+
+<!-- FETCHING DATA -->
+<script>
+  function get_the_news() {
+    $.get("./api/news", function (data) {
+      create_news(data);
+    });
+  }
+  get_the_news();
+
+  var dates = [];
+  function getpoints() {
+    $.get("./api/todays_data").done(function (data) {
+      console.log(data.today);
+      for (var i in data.available_days) {
+        var datee = data.available_days[i].split("_");
+
+        dates.push(datee[datee.length - 1]);
+      }
+      sessionStorage.clear();
+      sessionStorage.removeItem("availaible_dates");
+
+      sessionStorage.setItem("availaible_dates", dates);
+
+      document.getElementById("remove_after_data_is_loaded").remove();
+      mapON(data.data);
+    });
+  }
+
+  getpoints();
+</script>
+
+<!-- --------------- -->

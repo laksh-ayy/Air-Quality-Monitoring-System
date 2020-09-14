@@ -1,0 +1,9 @@
+.leaflet-control-zoomhome a {
+  font: bold 1vw "Lucida Console", Monaco, monospace;
+}
+
+a.leaflet-control-zoomhome-in,
+a.leaflet-control-zoomhome-out {
+  font-size: 1vw;
+  line-height: 1vw;
+}
